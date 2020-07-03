@@ -14,7 +14,7 @@ namespace KTGK2.Controllers
 {
     public class PhonesController : ApiController
     {
-        private KTGK2Entities db = new KTGK2Entities();
+        private KTGKEntities db = new KTGKEntities();
 
         // GET: api/Phones
         public IQueryable<Phone> GetPhones()
@@ -44,7 +44,7 @@ namespace KTGK2.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != phone.id)
+            if (id != phone.ID)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace KTGK2.Controllers
             db.Phones.Add(phone);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = phone.id }, phone);
+            return CreatedAtRoute("DefaultApi", new { id = phone.ID }, phone);
         }
 
         // DELETE: api/Phones/5
@@ -112,7 +112,7 @@ namespace KTGK2.Controllers
 
         private bool PhoneExists(int id)
         {
-            return db.Phones.Count(e => e.id == id) > 0;
+            return db.Phones.Count(e => e.ID == id) > 0;
         }
     }
 }

@@ -13,10 +13,10 @@ namespace KTGK2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class KTGK2Entities : DbContext
+    public partial class KTGKEntities : DbContext
     {
-        public KTGK2Entities()
-            : base("name=KTGK2Entities")
+        public KTGKEntities()
+            : base("name=KTGKEntities")
         {
         }
     

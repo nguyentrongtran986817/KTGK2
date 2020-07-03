@@ -16,7 +16,7 @@ namespace ShowPhones.Controllers
 {
     public class PhonesController : Controller
     {
-        private KTGK2Entities db = new KTGK2Entities();
+        private KTGKEntities db = new KTGKEntities();
         public string addressIp = "http://localhost:60203";
         // GET: Phones
         public async Task<ActionResult> Index()
@@ -25,7 +25,7 @@ namespace ShowPhones.Controllers
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(addressIp);
-                var result = await client.GetAsync($"api/Phones");
+                var result = await client.GetAsync($"/api/Phones");
                 if (result.IsSuccessStatusCode)
                 {
                     string data = result.Content.ReadAsStringAsync().Result;
@@ -141,7 +141,7 @@ namespace ShowPhones.Controllers
                     string data = JsonConvert.SerializeObject(phone);
                     StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
                     client.BaseAddress = new Uri(addressIp);
-                    var result = await client.PutAsync("api/Phones/" + phone.id, content);
+                    var result = await client.PutAsync("api/Phones/" + phone.ID, content);
                     if (result.IsSuccessStatusCode)
                     {
                         return RedirectToAction("Index");

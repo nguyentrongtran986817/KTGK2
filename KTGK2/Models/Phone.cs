@@ -14,9 +14,9 @@ namespace KTGK2.Models
     
     public partial class Phone
     {
-        public int id { get; set; }
-        public string model { get; set; }
-        public Nullable<decimal> price { get; set; }
-        public string gerenal_not { get; set; }
+        public int ID { get; set; }
+        public string Model { get; set; }
+        public Nullable<double> Price { get; set; }
+        public string GeneralNote { get; set; }
     }
 }
